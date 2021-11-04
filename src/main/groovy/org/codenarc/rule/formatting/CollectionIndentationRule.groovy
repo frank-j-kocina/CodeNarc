@@ -34,17 +34,26 @@ class CollectionIndentationRule extends AbstractAstVisitorRule {
 
 class CollectionIndentationAstVisitor extends AbstractAstVisitor {
 
-    // TODO - oh man, this may actually be doable!!
-
     @Override
     void visitListExpression(ListExpression listExpression) {
+        // collections without any expressions are always ok
         if (!listExpression.expressions) {
             return
         }
 
-        int firstExpressionColumnNumber = listExpression.expressions.first().columnNumber
+        // single-line collections are always ok
+        if (listExpression.lineNumber == listExpression.lastLineNumber) {
+            return
+        }
 
+        // the first collection expression on each line should have the same indentation
+        int firstExpressionColumnNumber = listExpression.expressions.first().columnNumber
+        int currentExpressionLineNumber = listExpression.expressions.first().lineNumber
         listExpression.expressions.each { Expression expression ->
+            if (expression.lineNumber == currentExpressionLineNumber) {
+                return
+            }
+            currentExpressionLineNumber = expression.lineNumber
             if (expression.columnNumber != firstExpressionColumnNumber) {
                 addViolation(expression, "The collection entry `${expression.text}` is at the incorrect indentation level: Expected column ${firstExpressionColumnNumber} but was ${expression.columnNumber}")
             }

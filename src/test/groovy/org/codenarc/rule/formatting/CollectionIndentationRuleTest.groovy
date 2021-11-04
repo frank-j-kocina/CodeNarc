@@ -45,11 +45,19 @@ class CollectionIndentationRuleTest extends AbstractRuleTestCase<CollectionInden
             |List l5 = [
             |        'chicken',
             |        'monkey']
+            |List l6 = ['chicken', 'monkey']
+            |List l7 = ['chicken', 'monkey',
+            |           'snake', 'walrus',
+            |           'unicorn']
+            |List l8 = [
+            |        'chicken', 'monkey',
+            |        'snake',
+            |        'walrus', 'unicorn']
             |// acceptable now, but would like to make a violation
-            |List l6 = [
+            |List l9 = [
             |    'chicken'
             |]
-            |List l7 = [
+            |List l10 = [
             |    'chicken',
             |    'monkey'
             |]

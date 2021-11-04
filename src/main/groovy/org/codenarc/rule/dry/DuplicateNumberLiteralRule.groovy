@@ -36,7 +36,8 @@ import org.codenarc.rule.AstVisitor
  */
 class DuplicateNumberLiteralRule extends AbstractAstVisitorRule {
 
-    private static final List NUMBER_TYPES = [Number,
+    private static final List NUMBER_TYPES = [
+            Number,
             Byte.TYPE,
             Double.TYPE,
             Float.TYPE,
