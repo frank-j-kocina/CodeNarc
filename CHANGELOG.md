@@ -1,3 +1,7 @@
+
+#TODO: Sort the following line into the file
+- CollectionIndentation rule (formatting) - Collections must be formatted according to Gravie conventions
+
 <!-- markdownlint-disable MD003 MD004 MD007 MD032 -->
 # CodeNarc Change Log
 

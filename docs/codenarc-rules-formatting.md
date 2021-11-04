@@ -1013,3 +1013,15 @@ NOTE: This is a file-based rule, rather than an AST-based rule, so the *applyToC
 *doNotApplyToClassNames* rule configuration properties are not available. See
 [Standard Properties for Configuring Rules](./codenarc-configuring-rules.html#standard-properties-for-configuring-rules).
 
+
+## CollectionIndentation Rule
+
+<Since CodeNarc 2.0.0>
+
+Collections must be formatted according to Gravie conventions
+
+Example of violations:
+
+```
+    // TODO: Add examples
+```
