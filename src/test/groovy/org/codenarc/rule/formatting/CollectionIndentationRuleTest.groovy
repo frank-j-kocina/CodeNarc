@@ -32,7 +32,7 @@ class CollectionIndentationRuleTest extends AbstractRuleTestCase<CollectionInden
     }
 
     @Test
-    void test_SomeCondition_NoViolations() {
+    void test_VariousValidFormats_NoViolations() {
         final String SOURCE = '''
             |List l1 = []
             |List l2 = ['chicken']
@@ -67,7 +67,7 @@ class CollectionIndentationRuleTest extends AbstractRuleTestCase<CollectionInden
     }
 
     @Test
-    void test_SomeCondition_Violations() {
+    void test_VariedLevelsOfIndentation_Violations() {
         final String SOURCE = '''
             |List l1 = ['chicken',
             |        'monkey',
@@ -87,6 +87,27 @@ class CollectionIndentationRuleTest extends AbstractRuleTestCase<CollectionInden
                 [line: 4, source: "'snake'", message: 'The collection entry `snake` is at the incorrect indentation level: Expected column 12 but was 10'],
                 [line: 7, source: "'monkey'", message: 'The collection entry `monkey` is at the incorrect indentation level: Expected column 9 but was 10'],
                 [line: 11, source: "'monkey'", message: 'The collection entry `monkey` is at the incorrect indentation level: Expected column 9 but was 8'])
+    }
+
+    @Test
+    void test_AllTypesOfCollections_Violations() {
+        final String SOURCE = '''
+            |Collection c = [
+            |        'chicken',
+            |         'monkey']
+            |List l = [
+            |        'chicken',
+            |         'monkey']
+            |Set s = [
+            |        'chicken',
+            |         'monkey']
+        '''.stripMargin()
+
+        assertViolations(
+                SOURCE,
+                [line: 4, source: "'monkey'", message: 'The collection entry `monkey` is at the incorrect indentation level: Expected column 9 but was 10'],
+                [line: 7, source: "'monkey'", message: 'The collection entry `monkey` is at the incorrect indentation level: Expected column 9 but was 10'],
+                [line: 10, source: "'monkey'", message: 'The collection entry `monkey` is at the incorrect indentation level: Expected column 9 but was 10'])
     }
 
     @Override
