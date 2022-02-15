@@ -45,4 +45,5 @@
     <rule class='org.codenarc.rule.formatting.SpaceBeforeOpeningBraceRule'/>
     <rule class='org.codenarc.rule.formatting.SpaceInsideParenthesesRule'/>
     <rule class='org.codenarc.rule.formatting.TrailingWhitespaceRule'/>
+    <rule class='org.codenarc.rule.formatting.CollectionIndentationRule'/>
 </ruleset>

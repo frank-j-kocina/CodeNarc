@@ -240,7 +240,7 @@ public class AstUtil {
         return new ArrayList<Expression>();
     }
 
-    private static List<? extends Expression> extractExpressions(Expression argumentsExpression ) {
+    private static List<? extends Expression> extractExpressions(Expression argumentsExpression) {
         if (argumentsExpression instanceof ArrayExpression) {
             return ((ArrayExpression) argumentsExpression).getExpressions();
         } else if (argumentsExpression instanceof ListExpression) {
